@@ -1,252 +1,156 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elevra</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Elevra — Creator Revenue Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
 :root{
-  --bg:       #0f0d0b;
-  --bg2:      #151210;
-  --amber:    #c8973a;
-  --amber-dim:#8a6525;
-  --cream:    #f0e8d8;
-  --muted:    rgba(240,232,216,0.42);
-  --dim:      rgba(240,232,216,0.18);
-  --border:   rgba(200,151,58,0.14);
-  --border2:  rgba(200,151,58,0.28);
+  --bg:#0d0b09;--bg2:#1c1610;--bg3:#241d12;
+  --amber:#c8973a;--amber-dim:#8a6525;--amber-pale:rgba(200,151,58,0.08);
+  --cream:#f0e8d8;--muted:rgba(240,232,216,0.45);--dim:rgba(240,232,216,0.2);
+  --border:rgba(200,151,58,0.14);--border2:rgba(200,151,58,0.3);--cream-bg:#f5f0e8;--cream-dark:#1a1510;--cream-muted:rgba(26,21,16,0.58);
 }
-
 html{scroll-behavior:smooth}
-
-body{
-  background:var(--bg);
-  color:var(--cream);
-  font-family:'DM Sans',sans-serif;
-  font-weight:300;
-  font-size:16px;
-  line-height:1.8;
-  -webkit-font-smoothing:antialiased;
-}
+body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 6vw;}
 
 /* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1.4rem 6vw;
-  display:flex;justify-content:space-between;align-items:center;
-  border-bottom:1px solid var(--border);
-  background:rgba(15,13,11,0.9);
-  backdrop-filter:blur(14px);
-}
-
-.nav-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.15rem;font-weight:400;
-  color:var(--cream);text-decoration:none;
-  letter-spacing:0.04em;
-}
-
-.lang-toggle{
-  display:flex;
-  border:1px solid var(--border2);
-  border-radius:3px;
-  overflow:hidden;
-}
-
-.lang-btn{
-  padding:0.35rem 0.9rem;
-  font-size:0.7rem;letter-spacing:0.1em;
-  font-family:'DM Sans',sans-serif;font-weight:400;
-  cursor:pointer;border:none;
-  background:transparent;color:var(--muted);
-  transition:background 0.18s,color 0.18s;
-}
-
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 6vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);background:rgba(15,13,11,0.92);backdrop-filter:blur(14px);}
+.nav-left{display:flex;align-items:baseline;gap:0.6rem;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--cream);text-decoration:none;letter-spacing:0.04em;}
+.nav-tag{font-size:0.63rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;}
+.lang-toggle{display:flex;border:1px solid var(--border2);border-radius:3px;overflow:hidden;}
+.lang-btn{padding:0.3rem 0.85rem;font-size:0.68rem;letter-spacing:0.1em;font-family:'DM Sans',sans-serif;font-weight:400;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:background 0.18s,color 0.18s;}
 .lang-btn.active{background:var(--amber);color:#0f0d0b;}
 
 /* HERO */
-#hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:10rem 6vw 7rem;
-  border-bottom:1px solid var(--border);
-  position:relative;overflow:hidden;
-}
-
-.hero-bg-text{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(6rem,18vw,18rem);
-  font-weight:300;
-  color:rgba(200,151,58,0.04);
-  white-space:nowrap;
-  pointer-events:none;user-select:none;
-  letter-spacing:-0.02em;
-}
-
-.eyebrow{
-  font-size:0.68rem;letter-spacing:0.2em;
-  color:var(--amber);text-transform:uppercase;
-  margin-bottom:1.75rem;
-}
-
-.hero-headline{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2.8rem,6.5vw,5.5rem);
-  font-weight:300;line-height:1.05;
-  margin-bottom:2rem;max-width:820px;
-}
-
-.hero-headline em{font-style:italic;color:var(--amber);}
-
-.hero-sub{
-  font-size:1rem;color:var(--muted);
-  max-width:500px;margin-bottom:3.5rem;line-height:1.85;
-}
-
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:10rem 6vw 7rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(6rem,18vw,18rem);font-weight:300;color:rgba(200,151,58,0.04);white-space:nowrap;pointer-events:none;user-select:none;letter-spacing:-0.02em;}
+.eyebrow{font-size:0.66rem;letter-spacing:0.2em;color:var(--amber);text-transform:uppercase;margin-bottom:1.75rem;}
+.hero-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6.5vw,5.5rem);font-weight:300;line-height:1.05;margin-bottom:2rem;max-width:820px;}
+.hero-h em{font-style:italic;color:var(--amber);}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:500px;margin-bottom:1.2rem;line-height:1.85;}
+.hero-credential{font-size:0.78rem;color:var(--amber-dim);letter-spacing:0.04em;margin-bottom:3rem;}
 .btn-wrap{display:flex;flex-direction:column;gap:0.6rem;align-items:flex-start;}
-
-.btn{
-  display:inline-block;
-  padding:0.85rem 2.2rem;
-  border:1px solid var(--amber-dim);
-  color:var(--amber);text-decoration:none;
-  font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
-  font-family:'DM Sans',sans-serif;font-weight:400;
-  transition:background 0.2s,color 0.2s,border-color 0.2s;
-}
-
+.btn{display:inline-block;padding:0.85rem 2.2rem;border:1px solid var(--amber-dim);color:var(--amber);text-decoration:none;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:400;transition:background 0.2s,color 0.2s,border-color 0.2s;}
 .btn:hover{background:var(--amber);color:var(--bg);border-color:var(--amber);}
+.btn-note{font-size:0.7rem;color:var(--dim);letter-spacing:0.04em;}
 
-.btn-note{font-size:0.72rem;color:var(--dim);letter-spacing:0.04em;}
+/* BEFORE AFTER */
+#beforeafter{padding:8rem 6vw;border-bottom:1px solid var(--border);background:var(--bg-alt);}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:3.5rem;}
+.ba-col{padding:2.5rem;background:var(--bg2);}
+.ba-col.after{background:var(--amber-pale);border:1px solid var(--border2);}
+.ba-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;}
+.ba-col:first-child .ba-label{color:var(--dim);}
+.ba-col.after .ba-label{color:var(--amber);}
+.ba-item{display:flex;gap:0.85rem;align-items:flex-start;padding:0.75rem 0;border-bottom:1px solid rgba(240,232,216,0.06);}
+.ba-item:last-child{border-bottom:none;}
+.ba-icon{font-size:0.7rem;padding-top:0.4rem;min-width:1rem;text-align:center;}
+.ba-text{font-size:0.92rem;color:var(--muted);line-height:1.6;}
+.ba-col.after .ba-text{color:var(--cream);}
+
+/* HOW IT WORKS */
+#how{padding:8rem 6vw;border-bottom:1px solid var(--border);text-align:center;background:var(--bg);}
+.how-steps{margin-top:5rem;display:flex;flex-direction:column;gap:0;}
+.how-step{padding:3.5rem 0;border-top:1px solid var(--border);display:grid;grid-template-columns:4rem 1fr;gap:2rem;align-items:start;text-align:left;}
+.how-step:last-child{border-bottom:1px solid var(--border);}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--amber);line-height:1;opacity:0.5;}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.1;margin-bottom:0.6rem;}
+.step-title em{font-style:italic;color:var(--amber);}
+.step-sub{font-size:0.92rem;color:var(--muted);line-height:1.75;}
+
+/* PAIN POINTS */
+#pain{padding:8rem 6vw;border-bottom:1px solid var(--border);background:var(--bg-alt);}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3.5rem;}
+.pain-card{padding:2rem;border:1px solid var(--border);background:var(--bg2);}
+.pain-q{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;line-height:1.3;margin-bottom:1rem;color:var(--cream);}
+.pain-a{font-size:0.88rem;color:var(--muted);line-height:1.75;}
+.pain-a strong{color:var(--cream);font-weight:400;}
 
 /* SERVICES */
 #services{padding:8rem 6vw;border-bottom:1px solid var(--border);}
-
-.section-tag{
-  font-size:0.68rem;letter-spacing:0.2em;
-  color:var(--amber);text-transform:uppercase;margin-bottom:4rem;
-}
-
-.service-item{
-  display:grid;grid-template-columns:3rem 1fr;
-  gap:1.5rem;align-items:start;
-  padding:2.2rem 0;border-top:1px solid var(--border);
-}
-
+.section-tag{font-size:0.63rem;letter-spacing:0.2em;color:var(--amber);text-transform:uppercase;margin-bottom:4rem;padding-left:0.85rem;border-left:2px solid var(--amber);}
+.service-item{display:grid;grid-template-columns:3rem 1fr;gap:1.5rem;align-items:start;padding:2.2rem 0;border-top:1px solid var(--border);}
 .service-item:last-child{border-bottom:1px solid var(--border);}
-
-.snum{font-size:0.68rem;color:var(--amber-dim);letter-spacing:0.1em;padding-top:0.5rem;}
-
-.stext-en{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.7rem;font-weight:300;line-height:1.2;margin-bottom:0.35rem;
-}
-
-.stext-zh{font-size:0.88rem;color:var(--muted);}
-
-.services-note{
-  margin-top:3.5rem;padding-top:2rem;
-  border-top:1px solid var(--border);
-  font-size:0.88rem;color:var(--muted);
-}
-
+.snum{font-size:0.66rem;color:var(--amber-dim);letter-spacing:0.1em;padding-top:0.5rem;}
+.stext-en{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;line-height:1.2;}
+.stext-zh{font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:300;color:var(--cream);}
+.services-note{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border);font-size:0.88rem;color:var(--muted);}
 .services-note strong{color:var(--cream);font-weight:400;}
+
+/* FAQ */
+#faq{padding:8rem 6vw;border-bottom:1px solid var(--border);background:var(--bg2);}
+.faq-list{margin-top:3.5rem;}
+.faq-item{border-top:1px solid var(--border);padding:2rem 0;}
+.faq-item:last-child{border-bottom:1px solid var(--border);}
+.faq-q{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;line-height:1.3;margin-bottom:0.85rem;color:var(--cream);}
+.faq-a{font-size:0.92rem;color:var(--muted);line-height:1.8;max-width:680px;}
+.faq-a strong{color:var(--cream);font-weight:400;}
 
 /* ABOUT */
 #about{padding:8rem 6vw;border-bottom:1px solid var(--border);}
-
-.about-layout{
-  display:grid;grid-template-columns:1fr 2.4fr;
-  gap:6rem;align-items:start;
-}
-
-.photo-frame{
-  width:100%;aspect-ratio:3/4;
-  background:var(--bg2);
-  border:1px solid var(--border);
-  overflow:hidden;
-}
-
-.photo-frame img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center 10%;
-  display:block;
-  filter:grayscale(20%) sepia(12%) brightness(0.82);
-  opacity:0.7;
-}
-
-.photo-caption{
-  margin-top:0.9rem;
-  font-size:0.67rem;color:var(--amber-dim);
-  letter-spacing:0.12em;text-transform:uppercase;
-}
-
-.about-tag{
-  font-size:0.68rem;letter-spacing:0.2em;
-  color:var(--amber);text-transform:uppercase;margin-bottom:2rem;
-}
-
-.about-body{
-  font-size:1rem;color:var(--muted);
-  line-height:1.9;margin-bottom:2.5rem;
-}
-
+.about-layout{display:grid;grid-template-columns:1fr 2.4fr;gap:6rem;align-items:start;}
+.photo-frame{width:100%;aspect-ratio:3/4;background:var(--bg2);border:1px solid var(--border);overflow:hidden;}
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block;filter:grayscale(10%) sepia(8%) brightness(0.95);opacity:0.88;}
+.photo-caption{margin-top:0.9rem;font-size:0.65rem;color:var(--amber-dim);letter-spacing:0.12em;text-transform:uppercase;}
+.about-body{font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:2.5rem;}
 .about-body strong{color:var(--cream);font-weight:400;}
-
-.about-stats{
-  display:flex;gap:3rem;
-  padding-top:2rem;border-top:1px solid var(--border);
-}
-
-.stat-val{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2rem;font-weight:300;
-  color:var(--amber);line-height:1;margin-bottom:0.3rem;
-}
-
-.stat-label{font-size:0.7rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;}
+.about-stats{display:flex;gap:3rem;padding-top:2rem;border-top:1px solid var(--border);}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--amber);line-height:1;margin-bottom:0.3rem;}
+.stat-label{font-size:0.68rem;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;}
 
 /* BOOK */
-#book{padding:9rem 6vw;text-align:center;}
-
-.book-headline{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2rem,5vw,4rem);
-  font-weight:300;line-height:1.15;margin-bottom:1.25rem;
-}
-
-.book-sub{font-size:0.95rem;color:var(--muted);margin-bottom:0.4rem;}
-.book-sub2{font-size:0.82rem;color:var(--dim);margin-bottom:3.5rem;}
+#book{padding:9rem 6vw;text-align:center;background:var(--cream-bg);}
+.book-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,4rem);font-weight:300;line-height:1.15;margin-bottom:1.25rem;color:var(--cream-dark);}
+.book-sub{font-size:0.95rem;color:var(--cream-muted);margin-bottom:0.4rem;}
+.book-sub2{font-size:0.82rem;color:var(--cream-muted);opacity:0.7;margin-bottom:3.5rem;}
+#book .btn{border-color:rgba(26,21,16,0.35);color:var(--cream-dark);}
+#book .btn:hover{background:var(--cream-dark);color:var(--cream-bg);border-color:var(--cream-dark);}
 
 /* FOOTER */
-footer{
-  padding:1.75rem 6vw;border-top:1px solid var(--border);
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:0.72rem;color:var(--dim);
+footer{padding:1.75rem 6vw;background:var(--cream-bg);border-top:1px solid rgba(26,21,16,0.1);display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:var(--cream-muted);}
+
+/* LANG */
+body:not(.lang-zh) .zh{display:none !important}
+body.lang-zh .en{display:none !important}
+
+/* SECTION BACKGROUNDS */
+#beforeafter,#pain,#faq{background:var(--bg2);}
+
+
+/* RESPONSIVE — TABLET 960px */
+@media(max-width:960px){
+  .pain-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr;gap:0.5rem}
+  .about-layout{gap:3.5rem}
+  .how-step{padding:2.5rem 0}
+  .step-title{font-size:clamp(1.6rem,3vw,2.4rem)}
 }
 
-/* LANG TOGGLE */
-.zh{display:none}
-body.lang-zh .zh{display:block}
-body.lang-zh .en{display:none}
-body.lang-zh .stext-en{display:none}
-body.lang-zh .stext-zh{
-  font-family:'DM Sans',sans-serif;
-  font-size:1.2rem;font-weight:300;
-  color:var(--cream);margin-bottom:0;
-}
-
-@media(max-width:700px){
-  .about-layout{grid-template-columns:1fr;gap:3rem}
-  .photo-frame{aspect-ratio:4/3}
-  .about-stats{gap:2rem}
+/* RESPONSIVE — MOBILE 680px */
+@media(max-width:680px){
+  nav{padding:1rem 5vw}
+  .nav-tag{display:none}
+  #hero{padding:7rem 5vw 4.5rem}
+  #beforeafter,#how,#pain,#services,#faq,#about,#book{padding:4rem 5vw}
+  .eyebrow{font-size:0.58rem;letter-spacing:0.14em}
+  .ba-col{padding:1.75rem}
+  .how-step{grid-template-columns:2.5rem 1fr;gap:1rem;padding:2rem 0}
+  .step-num{font-size:2.2rem}
+  .about-layout{grid-template-columns:1fr;gap:2rem}
+  .photo-frame{aspect-ratio:16/9;max-height:240px}
+  .photo-frame img{object-position:center 15%}
+  .about-stats{gap:1.25rem;flex-wrap:wrap}
+  .stat-val{font-size:1.5rem}
+  .btn{width:100%;text-align:center;display:block}
+  .btn-wrap{width:100%}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+  .pain-card{padding:1.5rem}
+  .faq-item{padding:1.5rem 0}
 }
 </style>
 </head>
@@ -254,7 +158,11 @@ body.lang-zh .stext-zh{
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Elevra</a>
+  <div class="nav-left">
+    <a href="#" class="nav-logo">Elevra</a>
+    <span class="nav-tag en">· Creator Revenue Partner</span>
+    <span class="nav-tag zh">· 創作者收益合夥人</span>
+  </div>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('zh')">中文</button>
@@ -263,114 +171,226 @@ body.lang-zh .stext-zh{
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg-text">Revenue</div>
-
-  <p class="eyebrow en">Shadow Operator · Hong Kong</p>
-  <p class="eyebrow zh">影子運營者 · 香港</p>
-
-  <h1 class="hero-headline en">
-    Your audience is there.<br>
-    The revenue <em>hasn't</em><br>caught up yet.
-  </h1>
-  <h1 class="hero-headline zh">
-    你的受眾已經在那裡。<br>
-    收入<em>還沒有</em>跟上。
-  </h1>
-
-  <p class="hero-sub en">
-    Whether you have no offer yet or an offer that isn't converting — the gap is always the same. No system connecting your audience to revenue. That's exactly what I build.
-  </p>
-  <p class="hero-sub zh">
-    無論你還沒有產品，還是已有產品但轉化率低——問題永遠一樣。沒有一套系統把你的受眾連結到收入。這正是我負責建立的。
-  </p>
-
+  <div class="hero-watermark">Revenue</div>
+  <div class="hero-inner">
+  <p class="eyebrow en">I build the system. You keep the audience. We split the revenue.</p>
+  <p class="eyebrow zh">我建立系統。你保留受眾。我們分享收益。</p>
+  <h1 class="hero-h en">Your audience is there.<br>The revenue <em>hasn't</em><br>caught up yet.</h1>
+  <h2 class="hero-h zh">你的受眾已經在那裡。<br>收入<em>還沒有</em>跟上。</h2>
+  <p class="hero-sub en">Whether you have no offer yet or a funnel that isn't converting — the gap is always the same. No system connecting your audience to revenue. That's exactly what I build.</p>
+  <p class="hero-sub zh">無論你還沒有產品，還是漏斗轉化率低——問題永遠一樣。沒有一套系統把你的受眾連結到收入。這正是我負責建立的。</p>
+  <p class="hero-credential en">I have analysed hundreds of sales funnels and pages across every major creator niche.</p>
+  <p class="hero-credential zh">我分析了數百個不同創作者領域的銷售漏斗和頁面。</p>
   <div class="btn-wrap">
     <a href="https://calendly.com/kalonglo61/30min" class="btn en">Book a Free Strategy Call →</a>
     <a href="https://calendly.com/kalonglo61/30min" class="btn zh">預約免費策略通話 →</a>
     <p class="btn-note en">No pitch. No retainer. Pure revenue share.</p>
     <p class="btn-note zh">沒有推銷。沒有月費。純分潤模式。</p>
   </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="beforeafter">
+  <div class="wrap">
+    <p class="section-tag en">Before & After</p>
+    <p class="section-tag zh">合作前後對比</p>
+    <div class="ba-grid">
+      <div class="ba-col">
+        <p class="ba-label en">Right now</p>
+        <p class="ba-label zh">現在的狀況</p>
+        <div class="ba-item"><span class="ba-icon">—</span><p class="ba-text en">Views coming in, no way to capture them</p><p class="ba-text zh">有觀看人數，但沒有辦法留住他們</p></div>
+        <div class="ba-item"><span class="ba-icon">—</span><p class="ba-text en">Followers with nowhere to go after watching</p><p class="ba-text zh">追蹤者看完影片後無處可去</p></div>
+        <div class="ba-item"><span class="ba-icon">—</span><p class="ba-text en">No offer, or an offer sitting with no funnel behind it</p><p class="ba-text zh">沒有產品，或有產品但沒有漏斗支撐</p></div>
+        <div class="ba-item"><span class="ba-icon">—</span><p class="ba-text en">Content going out every week, revenue is zero</p><p class="ba-text zh">每週持續輸出內容，收入依然是零</p></div>
+      </div>
+      <div class="ba-col after">
+        <p class="ba-label en">Working with Elevra</p>
+        <p class="ba-label zh">與Elevra合作後</p>
+        <div class="ba-item"><span class="ba-icon" style="color:var(--amber)">→</span><p class="ba-text en">Every view flows into an email list you own</p><p class="ba-text zh">每個觀看都流入你擁有的電郵名單</p></div>
+        <div class="ba-item"><span class="ba-icon" style="color:var(--amber)">→</span><p class="ba-text en">Followers move through a funnel built around their words</p><p class="ba-text zh">追蹤者在根據他們語言建立的漏斗中轉化</p></div>
+        <div class="ba-item"><span class="ba-icon" style="color:var(--amber)">→</span><p class="ba-text en">Offer exists and converts — built from real audience data</p><p class="ba-text zh">產品存在並能轉化——根據真實受眾數據建立</p></div>
+        <div class="ba-item"><span class="ba-icon" style="color:var(--amber)">→</span><p class="ba-text en">Content compounds into consistent monthly income</p><p class="ba-text zh">內容轉化為穩定的每月收入</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <p class="section-tag en">How it works</p>
+    <p class="section-tag zh">合作方式</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-num">01</span>
+        <div>
+          <h3 class="step-title en">We <em>talk</em></h3>
+          <h3 class="step-title zh">我們<em>通話</em></h3>
+          <p class="step-sub en">Free 30-minute call. I show you exactly what's missing in your current setup and what I'd build to fix it. No pitch — just a clear diagnosis.</p>
+          <p class="step-sub zh">免費30分鐘通話。我告訴你現在缺少什麼，以及我會如何建立它。沒有推銷——只有清晰的診斷。</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <span class="step-num">02</span>
+        <div>
+          <h3 class="step-title en">I <em>build</em></h3>
+          <h3 class="step-title zh">我<em>建立</em></h3>
+          <p class="step-sub en">You keep making content. I handle everything else — the funnel, the email sequence, the offer. You don't need to learn a single new tool.</p>
+          <p class="step-sub zh">你繼續製作內容。我負責其他一切——漏斗、電郵序列、產品。你不需要學習任何新工具。</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <span class="step-num">03</span>
+        <div>
+          <h3 class="step-title en">We <em>earn</em></h3>
+          <h3 class="step-title zh">我們<em>一起賺</em></h3>
+          <p class="step-sub en">Revenue share only. I take a percentage of what we generate together — nothing before that. If it doesn't work, you've paid nothing.</p>
+          <p class="step-sub zh">純分潤模式。我只從我們共同創造的收益中抽取百分比——在此之前什麼都不收。如果沒有成效，你分文不需付。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section id="pain">
+  <div class="wrap">
+    <p class="section-tag en">Common concerns</p>
+    <p class="section-tag zh">常見顧慮</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <p class="pain-q en">"I don't have time to manage another person."</p>
+        <p class="pain-q zh">「我沒時間管理另一個人。」</p>
+        <p class="pain-a en">You don't manage me. I work in the background. The only thing you do is keep making content — everything else is on me.</p>
+        <p class="pain-a zh">你不需要管理我。我在後台工作。你唯一需要做的就是繼續製作內容——其他一切都由我負責。</p>
+      </div>
+      <div class="pain-card">
+        <p class="pain-q en">"What if my audience is too small?"</p>
+        <p class="pain-q zh">「我的受眾太少怎麼辦？」</p>
+        <p class="pain-a en"><strong>Small audiences convert better</strong> — they're more loyal and more specific. I've seen creators with under 5,000 followers generate real revenue. Size is not the bottleneck. The system is.</p>
+        <p class="pain-a zh"><strong>小受眾的轉化率更高</strong>——他們更忠誠、更精準。我見過不足5,000追蹤者的創作者產生真實收入。受眾規模不是瓶頸，系統才是。</p>
+      </div>
+      <div class="pain-card">
+        <p class="pain-q en">"I already tried selling and it didn't work."</p>
+        <p class="pain-q zh">「我已經試過銷售，但沒有效果。」</p>
+        <p class="pain-a en">That usually means the offer wasn't built from audience data, or there was no warm-up before the pitch. <strong>Both are fixable.</strong> That's exactly what this system addresses.</p>
+        <p class="pain-a zh">這通常意味著產品沒有根據受眾數據建立，或者在推銷前沒有足夠的預熱。<strong>兩者都可以解決。</strong>這正是這套系統要解決的問題。</p>
+      </div>
+      <div class="pain-card">
+        <p class="pain-q en">"How do I know this will actually work?"</p>
+        <p class="pain-q zh">「我怎麼知道這真的有效？」</p>
+        <p class="pain-a en">You don't — and I won't pretend otherwise. <strong>That's why there's no upfront cost.</strong> The revenue share model means I only get paid when it works. My incentive is identical to yours.</p>
+        <p class="pain-a zh">你不知道——我也不會假裝你知道。<strong>這就是為什麼沒有前期費用。</strong>分潤模式意味著只有在成功的時候我才能獲得報酬。我的利益與你完全一致。</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
-  <p class="section-tag en">What I build</p>
-  <p class="section-tag zh">我負責建立</p>
+  <div class="wrap">
+    <p class="section-tag en">What I build</p>
+    <p class="section-tag zh">我負責建立</p>
+    <div class="service-item">
+      <span class="snum">01</span>
+      <div>
+        <p class="stext-en en">A content system that turns views into booked calls</p>
+        <p class="stext-zh zh">把觀看人數轉化為預約電話的內容系統</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <span class="snum">02</span>
+      <div>
+        <p class="stext-en en">An email funnel that converts followers into buyers</p>
+        <p class="stext-zh zh">把追蹤者轉化為買家的電郵漏斗</p>
+      </div>
+    </div>
+    <div class="service-item">
+      <span class="snum">03</span>
+      <div>
+        <p class="stext-en en">An offer built directly from your audience's own words</p>
+        <p class="stext-zh zh">根據你受眾語言打造的產品</p>
+      </div>
+    </div>
+    <p class="services-note en"><strong>Pure revenue share.</strong> I only earn when you earn. No setup fees. No monthly retainer. You keep full control — I build the infrastructure that connects your audience to consistent income.</p>
+    <p class="services-note zh"><strong>純分潤模式。</strong>我賺錢，才代表你賺錢。沒有開戶費，沒有月費。你保持完全控制權——我只負責建立把你的受眾轉化為穩定收入的基礎設施。</p>
+  </div>
+</section>
 
-  <div class="service-item">
-    <span class="snum">01</span>
-    <div>
-      <p class="stext-en">A content system that turns views into booked calls</p>
-      <p class="stext-zh">把觀看人數轉化為預約電話的內容系統</p>
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <p class="section-tag en">FAQ</p>
+    <p class="section-tag zh">常見問題</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <p class="faq-q en">What if it doesn't work?</p>
+        <p class="faq-q zh">如果沒有效果怎麼辦？</p>
+        <p class="faq-a en">Then you've lost nothing. There are no upfront fees, no retainers, no contracts that lock you in. <strong>You only pay me when revenue is generated.</strong> If nothing works, I walk away with nothing too. That's the deal.</p>
+        <p class="faq-a zh">那你什麼都沒有損失。沒有前期費用，沒有月費，沒有鎖定你的合約。<strong>只有在產生收益時你才需要付我錢。</strong>如果沒有效果，我也什麼都得不到。這就是我們的協議。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q en">Do I lose control of my content?</p>
+        <p class="faq-q zh">我會失去對內容的控制權嗎？</p>
+        <p class="faq-a en">No. <strong>Your content stays yours.</strong> I work behind the scenes on the funnel, email sequences, and offer — none of which touches your channel or how you create. You approve everything before it goes live.</p>
+        <p class="faq-a zh">不會。<strong>你的內容永遠屬於你。</strong>我在後台處理漏斗、電郵序列和產品——這些都不會觸及你的頻道或你的創作方式。所有內容上線前都需要你的批准。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q en">How much of my revenue do you take?</p>
+        <p class="faq-q zh">你會抽取多少收益？</p>
+        <p class="faq-a en">We agree on a percentage before anything is built — it's discussed on the call and written into a simple agreement. <strong>The split is always fair to both sides</strong> and depends on what I'm building and managing for you.</p>
+        <p class="faq-a zh">我們在建立任何東西之前先協議百分比——在通話中討論並寫入簡單協議。<strong>分成比例對雙方都公平</strong>，取決於我為你建立和管理的內容。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q en">I already have a funnel. Can you still help?</p>
+        <p class="faq-q zh">我已經有漏斗了。你還能幫我嗎？</p>
+        <p class="faq-a en">Yes — and this is often where the biggest gains are. <strong>A weak funnel with good traffic is a bigger opportunity than starting from zero.</strong> I'll audit what exists and show you exactly where it's leaking on the call.</p>
+        <p class="faq-a zh">可以——而且這往往是最大收益所在。<strong>有好流量但漏斗不強，比從零開始更有機會。</strong>我會在通話中審查現有的漏斗，並告訴你它在哪裡流失。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q en">Why should I trust someone I've never heard of?</p>
+        <p class="faq-q zh">為什麼我要相信一個從未聽說過的人？</p>
+        <p class="faq-a en">You shouldn't — not yet. <strong>Trust is earned, not claimed.</strong> That's why the first call costs you nothing and commits you to nothing. Come on the call, see how I think, look at the plan. Then decide. The risk is entirely on my side.</p>
+        <p class="faq-a zh">你不應該——至少現在還不應該。<strong>信任是賺來的，不是聲稱的。</strong>這就是為什麼第一次通話對你分文不收，也不要求任何承諾。來參加通話，看看我的思維方式，看看計劃。然後再決定。風險完全在我這邊。</p>
+      </div>
+
     </div>
   </div>
-
-  <div class="service-item">
-    <span class="snum">02</span>
-    <div>
-      <p class="stext-en">An email funnel that converts followers into buyers</p>
-      <p class="stext-zh">把追蹤者轉化為買家的電郵漏斗</p>
-    </div>
-  </div>
-
-  <div class="service-item">
-    <span class="snum">03</span>
-    <div>
-      <p class="stext-en">An offer built directly from your audience's own words</p>
-      <p class="stext-zh">根據你受眾語言打造的產品</p>
-    </div>
-  </div>
-
-  <p class="services-note en">
-    <strong>Pure revenue share.</strong> I only earn when you earn. No setup fees. No monthly retainer. You keep full control — I build the infrastructure that connects your audience to consistent income.
-  </p>
-  <p class="services-note zh">
-    <strong>純分潤模式。</strong>我賺錢，才代表你賺錢。沒有開戶費，沒有月費。你保持完全控制權——我只負責建立把你的受眾轉化為穩定收入的基礎設施。
-  </p>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <p class="section-tag en">About</p>
-  <p class="section-tag zh">關於我</p>
-
-  <div class="about-layout">
-    <div>
-      <div class="photo-frame">
-        <img src="https://i.ibb.co/Pvg5R6mM/aad215dc-4afd-4bcd-910a-e769e2e234e4.jpg" alt="Lo Ka Long">
+  <div class="wrap">
+    <p class="section-tag en">About</p>
+    <p class="section-tag zh">關於我</p>
+    <div class="about-layout">
+      <div>
+        <div class="photo-frame">
+          <img src="https://i.ibb.co/Pvg5R6mM/aad215dc-4afd-4bcd-910a-e769e2e234e4.jpg" alt="Lo — Elevra">
+        </div>
+        <p class="photo-caption en">Lo · Hong Kong</p>
+        <p class="photo-caption zh">Lo · 香港</p>
       </div>
-      <p class="photo-caption en">Lo · Hong Kong</p>
-      <p class="photo-caption zh">Lo · 香港</p>
-    </div>
-
-    <div>
-      <p class="about-tag en">About</p>
-      <p class="about-tag zh">關於我</p>
-
-      <p class="about-body en">
-        I'm Lo, <strong>18, based in Hong Kong.</strong> I partner with content creators to build the systems that turn their audience into revenue — content frameworks, email funnels, and offer architecture.<br><br>
-        I work with a small number of creators on a <strong>pure revenue share basis.</strong> No retainers. No setup fees. You don't pay me a single dollar unless we make money together. If I don't think we're a fit, I'll tell you straight.
-      </p>
-      <p class="about-body zh">
-        我是Lo，<strong>18歲，香港人。</strong>我與內容創作者合作，建立把受眾轉化為收入的系統——內容框架、電郵漏斗和產品架構。<br><br>
-        我以<strong>純分潤模式</strong>與少數創作者合作。沒有月費，沒有開戶費。除非我們一起賺到錢，否則你不需要付我一分錢。如果我認為我們不適合，我會直接告訴你。
-      </p>
-
-      <div class="about-stats">
-        <div>
-          <p class="stat-val">$0</p>
-          <p class="stat-label en">Upfront cost</p>
-          <p class="stat-label zh">前期費用</p>
-        </div>
-        <div>
-          <p class="stat-val">Rev%</p>
-          <p class="stat-label en">Share model only</p>
-          <p class="stat-label zh">純分潤模式</p>
-        </div>
-        <div>
-          <p class="stat-val">HK</p>
-          <p class="stat-label en">Based, global reach</p>
-          <p class="stat-label zh">香港基地，全球觸達</p>
+      <div>
+        <p class="about-body en">I'm Lo, <strong>18, based in Hong Kong.</strong> I partner with content creators to build the systems that turn their audience into revenue — email funnels, offer architecture, and content frameworks.<br><br>I work with a small number of creators on a <strong>pure revenue share basis.</strong> No retainers. No setup fees. You don't pay me a single dollar unless we make money together. If I don't think we're a fit after the call, I'll tell you straight.</p>
+        <p class="about-body zh">我是Lo，<strong>18歲，香港人。</strong>我與內容創作者合作，建立把受眾轉化為收入的系統——電郵漏斗、產品架構和內容框架。<br><br>我以<strong>純分潤模式</strong>與少數創作者合作。沒有月費，沒有開戶費。除非我們一起賺到錢，否則你不需要付我一分錢。如果通話後我認為我們不適合，我會直接告訴你。</p>
+        <div class="about-stats">
+          <div>
+            <p class="stat-val">$0</p>
+            <p class="stat-label en">Upfront cost</p>
+            <p class="stat-label zh">前期費用</p>
+          </div>
+          <div>
+            <p class="stat-val">Rev%</p>
+            <p class="stat-label en">Split agreed on call</p>
+            <p class="stat-label zh">通話後協議比例</p>
+          </div>
         </div>
       </div>
     </div>
@@ -379,33 +399,30 @@ body.lang-zh .stext-zh{
 
 <!-- BOOK -->
 <section id="book">
-  <h2 class="book-headline en">Ready to turn your<br>audience into revenue?</h2>
-  <h2 class="book-headline zh">準備好把你的受眾<br>轉化為收入了嗎？</h2>
-
-  <p class="book-sub en">Book a free 20-minute call. No pitch. Just a clear plan.</p>
-  <p class="book-sub zh">預約免費20分鐘通話。沒有推銷。只有清晰的計劃。</p>
-
-  <p class="book-sub2 en">Calendly link coming soon</p>
-  <p class="book-sub2 zh">Calendly 連結即將上線</p>
-
-  <a href="https://calendly.com/kalonglo61/30min" class="btn en">Book Your Free Call →</a>
-  <a href="https://calendly.com/kalonglo61/30min" class="btn zh">立即預約免費通話 →</a>
+  <div class="wrap" style="text-align:center;max-width:680px;">
+    <h2 class="book-h en">Ready to turn your<br>audience into revenue?</h2>
+    <h2 class="book-h zh">準備好把你的受眾<br>轉化為收入了嗎？</h2>
+    <p class="book-sub en">Book a free 30-minute call. No pitch. Just a clear plan.</p>
+    <p class="book-sub zh">預約免費30分鐘通話。沒有推銷。只有清晰的計劃。</p>
+    <p class="book-sub2 en">I'll show you exactly what's missing and what I'd build.</p>
+    <p class="book-sub2 zh">我會告訴你缺少什麼，以及我會如何建立它。</p>
+    <a href="https://calendly.com/kalonglo61/30min" class="btn en">Book Your Free Call →</a>
+    <a href="https://calendly.com/kalonglo61/30min" class="btn zh">立即預約免費通話 →</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <span>© 2026 Elevra</span>
-  <span class="en">Hong Kong · Shadow Operator</span>
-  <span class="zh">香港 · 影子運營者</span>
+  <span class="en">Hong Kong · Revenue Partnerships</span>
+  <span class="zh">香港 · 收益合作</span>
 </footer>
 
 <script>
-function setLang(lang){
-  document.body.className = lang==='zh'?'lang-zh':'';
-  document.querySelectorAll('.lang-btn').forEach(function(b){
-    b.classList.toggle('active', b.textContent.trim()===(lang==='zh'?'中文':'EN'));
-  });
-  document.documentElement.lang = lang==='zh'?'zh-Hant':'en';
+function setLang(l){
+  document.body.className=l==='zh'?'lang-zh':'';
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.textContent.trim()===(l==='zh'?'中文':'EN'));});
+  document.documentElement.lang=l==='zh'?'zh-Hant':'en';
 }
 </script>
 </body>
